@@ -47,11 +47,7 @@ class GooglePlaces(Provider):
         Returns:
             place_id list
         """
-        place_id_list = []
-        for place in places:
-            if 'place_id' in place:
-                placeid = place['place_id']
-                place_id_list.append(placeid)
+        place_id_list = [place['place_id'] for place in places if 'place_id' in place]
         return place_id_list
 
     def get_place_detail_list(self, place_id_list):
